@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: root
+  username: <%= ENV['SSDV_DATABASE_USER'] %>
+  password: <%= ENV['SSDV_DATABASE_PASSWORD'] %>
   socket: /tmp/mysql.sock
 
 development:
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: ssdv_production
-  username: ssdv
+  username: <%= ENV['SSDV_DATABASE_USER'] %>
   password: <%= ENV['SSDV_DATABASE_PASSWORD'] %>
